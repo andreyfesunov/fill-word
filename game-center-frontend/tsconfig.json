@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "useDefineForClassFields": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "module": "ESNext",
     "lib": [
       "ES2020",
@@ -19,7 +20,34 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": [
+        "./src/Api/*"
+      ],
+      "@api": [
+        "./src/Api"
+      ],
+      "@domain/*": [
+        "./src/Domain/*"
+      ],
+      "@domain": [
+        "./src/Domain"
+      ],
+      "@repo/*": [
+        "./src/Repository/*"
+      ],
+      "@repo": [
+        "./src/Repository"
+      ],
+      "@adapter/*": [
+        "./src/Adapter/*"
+      ],
+      "@adapter": [
+        "./src/Adapter"
+      ]
+    }
   },
   "include": [
     "src"

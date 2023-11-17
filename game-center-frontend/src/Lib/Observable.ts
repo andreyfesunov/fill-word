@@ -19,10 +19,10 @@ export class Subscription {
 export interface Observer<T> {
     next?: (value: T) => void;
     complete?: () => void;
-    error?: (error: Error) => void;
+    error?: (error: never) => void;
 }
 
-export class SafeSubscriber<T> {
+export class SafeSubscriber<T> implements Observer<T>{
     closed = false;
 
     constructor(

@@ -1,10 +1,13 @@
-import {FillWordGameStatus} from "../../Domain/FillWord/Enums/FillWordGameStatus";
-import {FillWordGameModel} from "../../Domain/FillWord/Models/FillWordGameModel";
+import {FillWordGameModel, FillWordGameStatus} from "@domain/FillWord/FillWord.models";
 
 export class FillWordGameService {
     public checkProgress(model: FillWordGameModel, itemsIds: number[]): FillWordGameStatus {
         for (const wordIds of model.wordsIds) {
             let hasError: boolean = false;
+
+            if (wordIds.length !== itemsIds.length) {
+                hasError = true;
+            }
             for (let i = 0; i < Math.min(wordIds.length, itemsIds.length); i++) {
                 if (wordIds[i] !== itemsIds[i]) {
                     hasError = true;
@@ -13,7 +16,7 @@ export class FillWordGameService {
             }
 
             if (!hasError) {
-                model.wordsFound++;
+                model.wordsFoundIds.push([...itemsIds]);
                 return this.checkIsGameFinished(model);
             }
         }
@@ -22,7 +25,7 @@ export class FillWordGameService {
     }
 
     private checkIsGameFinished(model: FillWordGameModel): FillWordGameStatus {
-        if (model.wordsFound !== model.getWordsCount()) return FillWordGameStatus.GOOD_MOVE;
+        if (model.wordsFoundIds.length !== model.wordsIds.length) return FillWordGameStatus.GOOD_MOVE;
 
         model.endDate = new Date();
         return FillWordGameStatus.END_GAME;

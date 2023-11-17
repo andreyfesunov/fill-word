@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json.schemastore.org/web-types",
+    "name": "fill-word-frontend",
+    "version": "0.0.0",
+    "framework": "lit",
+    "description-markup": "markdown",
+    "contributions": {
+        "html": {
+            "elements": [
+                {
+                    "name": "fill-word-game",
+                    "source": {
+                        "module": "./src/main.ts",
+                        "symbol": "MainComponent"
+                    },
+                    "js": {
+                        "properties": [
+                            {
+                                "name": "styles",
+                                "required": false,
+                                "priority": "normal",
+                                "value": {
+                                    "type": "CSSResult",
+                                    "required": true,
+                                    "default": "\"css`\\n            .flex-grid {\\n                width: min-content;\\n                display: grid;\\n                grid-template-columns: repeat(5, 1fr);\\n                grid-template-rows: repeat(5, 1fr);\\n                gap: 10px\\n            }\\n\\n            .flex-grid > .flex-grid__item {\\n                display: flex;\\n                justify-content: center;\\n                align-items: center;\\n\\n                width: 30px;\\n                height: 30px;\\n                border: 1px solid black;\\n            }\\n        `\""
+                                },
+                                "source": {
+                                    "module": "./src/main.ts",
+                                    "symbol": "MainComponent.styles"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "css": {
+            "properties": []
+        }
+    }
+}
