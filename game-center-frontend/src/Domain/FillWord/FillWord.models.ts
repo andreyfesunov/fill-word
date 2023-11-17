@@ -1,4 +1,4 @@
-import {ID, Nullable} from "../SharedKernel.types";
+import {ID} from "../SharedKernel.types";
 
 export interface IFillWordElementModel {
     id: ID,
@@ -10,6 +10,10 @@ export interface IFillWordModel {
     wordsIds: ID[][];
     row: number;
     col: number;
+}
+
+export interface IFillWordGameElementModel extends IFillWordElementModel {
+    active: boolean;
 }
 
 export enum FillWordGameStatus {
@@ -25,9 +29,7 @@ export interface IFillWordCreateModel {
 export class FillWordGameModel implements IFillWordModel {
     public wordsIds: number[][] = [];
     public wordsFoundIds: number[][] = [];
-    public startDate: Date = new Date();
-    public endDate: Nullable<Date> = null;
-    public matrix: IFillWordElementModel[][] = [];
+    public matrix: IFillWordGameElementModel[][] = [];
 
     public constructor(public row: number, public col: number) {
     }
@@ -35,7 +37,11 @@ export class FillWordGameModel implements IFillWordModel {
     public static createFromBaseModel(model: IFillWordModel): FillWordGameModel {
         const newModel = new FillWordGameModel(model.row, model.col);
 
-        newModel.matrix = model.matrix;
+        newModel.matrix = model.matrix.map((row) => row.map((ceil) => ({
+            content: ceil.content,
+            id: ceil.id,
+            active: false
+        })));
         newModel.wordsIds = model.wordsIds;
 
         return newModel;

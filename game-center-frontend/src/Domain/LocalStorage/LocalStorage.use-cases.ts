@@ -1,12 +1,12 @@
 import {UseCaseWithoutParams, UseCaseWithSingleParam} from '../UseCases.types';
 import {SetItemParams} from './LocalStorage.models';
-import {LocalStorageRepository} from './LocalStorage.repository';
+import {ILocalStorageRepository} from './ILocalStorageRepository';
 
 // isSupportedUseCase
 export type IsSupportedUseCase = UseCaseWithoutParams<boolean>;
 
 export const isSupportedUseCase = (
-    localStorageRepository: LocalStorageRepository,
+    localStorageRepository: ILocalStorageRepository,
 ): IsSupportedUseCase => ({
     execute: () => localStorageRepository.isSupported(),
 });
@@ -14,7 +14,7 @@ export const isSupportedUseCase = (
 // setItemUseCase
 export type SetItemUseCase = UseCaseWithSingleParam<SetItemParams, void>;
 
-export const setItemUseCase = (localStorageRepository: LocalStorageRepository): SetItemUseCase => ({
+export const setItemUseCase = (localStorageRepository: ILocalStorageRepository): SetItemUseCase => ({
     execute: (params) => {
         if (!localStorageRepository.isSupported()) {
             return;
@@ -27,7 +27,7 @@ export const setItemUseCase = (localStorageRepository: LocalStorageRepository): 
 // getItemUseCase
 export type GetItemUseCase = UseCaseWithSingleParam<string, string | null>;
 
-export const getItemUseCase = (localStorageRepository: LocalStorageRepository): GetItemUseCase => ({
+export const getItemUseCase = (localStorageRepository: ILocalStorageRepository): GetItemUseCase => ({
     execute: (key) => {
         if (!localStorageRepository.isSupported()) {
             return null;
@@ -41,7 +41,7 @@ export const getItemUseCase = (localStorageRepository: LocalStorageRepository): 
 export type RemoveItemUseCase = UseCaseWithSingleParam<string, void>;
 
 export const removeItemUseCase = (
-    localStorageRepository: LocalStorageRepository,
+    localStorageRepository: ILocalStorageRepository,
 ): RemoveItemUseCase => ({
     execute: (key) => {
         if (!localStorageRepository.isSupported()) {
