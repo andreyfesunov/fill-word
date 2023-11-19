@@ -1,7 +1,6 @@
-import {FillWordGameStatus, IFillWordCreateModel, IFillWordModel} from "./FillWord.models";
-import {ID} from "@domain/SharedKernel.types";
+import {FillWordGameStatus, IFillWordAttemptModel, IFillWordCreateModel, IFillWordModel} from "./FillWord.models";
 
 export interface IFillWordRepository {
     createFillWordGame: (model: IFillWordCreateModel) => Promise<IFillWordModel>,
-    attempt: (arrayOfIds: ID[]) => Promise<FillWordGameStatus>
+    attempt: (model: IFillWordAttemptModel) => Promise<FillWordGameStatus>
 }

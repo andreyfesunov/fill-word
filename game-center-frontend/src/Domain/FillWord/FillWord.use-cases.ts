@@ -1,7 +1,6 @@
 import {UseCaseWithSingleParamAndPromiseResult} from "../UseCases.types";
-import {FillWordGameStatus, IFillWordCreateModel, IFillWordModel} from "./FillWord.models";
+import {FillWordGameStatus, IFillWordAttemptModel, IFillWordCreateModel, IFillWordModel} from "./FillWord.models";
 import {IFillWordRepository} from "./IFillWordRepository";
-import {ID} from "@domain/SharedKernel.types";
 import {ILocalStorageRepository} from "@domain/LocalStorage/ILocalStorageRepository";
 
 export type FillWordCreateGameUseCaseType = UseCaseWithSingleParamAndPromiseResult<IFillWordCreateModel, IFillWordModel>
@@ -18,11 +17,11 @@ export const FillWordCreateGameUseCase = (fillWordRepository: IFillWordRepositor
     }
 })
 
-export type FillWordAttemptUseCaseType = UseCaseWithSingleParamAndPromiseResult<ID[], FillWordGameStatus>
+export type FillWordAttemptUseCaseType = UseCaseWithSingleParamAndPromiseResult<IFillWordAttemptModel, FillWordGameStatus>
 
 export const FillWordAttemptUseCase = (fillWordRepository: IFillWordRepository, storageRepository: ILocalStorageRepository): FillWordAttemptUseCaseType => ({
-    execute: (arrayOfIds) => {
-        const statusPromise = fillWordRepository.attempt(arrayOfIds);
+    execute: (model) => {
+        const statusPromise = fillWordRepository.attempt(model);
 
         statusPromise.then((status) => {
             if (status === FillWordGameStatus.END_GAME) {

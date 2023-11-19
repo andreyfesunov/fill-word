@@ -395,8 +395,9 @@ export class FillWordCreateService {
             const idPattern: ID[] = [];
 
             for (let index = 0; index < word.length; index++) {
-                map[word[index][0]][word[index][1]] = {content: `${wordFromBase[index]}`, id: id++};
+                map[word[index][0]][word[index][1]] = {content: `${wordFromBase[index]}`, id: id};
                 idPattern.push(id);
+                id++;
             }
 
             return idPattern;

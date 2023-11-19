@@ -26,15 +26,24 @@ export class MainComponent extends LitElement {
     @query('#size-input') sizeInput!: HTMLInputElement;
     @query('.game-grid') field!: HTMLDivElement;
     @query('.range__label') rangeLabel!: HTMLSpanElement;
+    @query('.win') win!: HTMLElement;
 
     protected render(): TemplateResult {
         return html`
             <div class="container">
                 <div class="range">
                     <label for="range-row">Current field size: <span class="range__label">${this.size}</span></label>
-                    <input type="range" id="size-input" min="3" max="8" value="${this.size}">
+                    <input type="range" id="size-input" min="3" max="10" value="${this.size}">
                 </div>
-                <div @mouseleave="${this.onMouseOver}" class="game-grid"></div>
+                <div @mouseleave="${this.onMouseUp}" class="game-grid"></div>
+                <div class="win win--hidden">
+                    <p>You win!</p>
+                    <button @click="${() => {
+                        this.drawField(this.size);
+                        this.hideWin()
+                    }}" class="win__button">Restart
+                    </button>
+                </div>
             </div>
         `;
     }
@@ -53,7 +62,7 @@ export class MainComponent extends LitElement {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: var(--_color, white);
 
         width: 80px;
         height: 80px;
@@ -66,7 +75,6 @@ export class MainComponent extends LitElement {
         display: flex;
         justify-content: center;
         padding: 12px;
-        margin-bottom: 12px;
       }      
       
       .container {
@@ -74,6 +82,28 @@ export class MainComponent extends LitElement {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 12px;
+      }
+      
+      .win {
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        border-radius: 12px;
+        background-color: white;  
+      }
+      
+      .win--hidden {
+        display: none;
+      }
+      
+      .win > .win__button {
+      }
+      
+      * {
+        user-select: none;
+        margin: 0;
+        padding: 0;
       }
     `
 
@@ -101,6 +131,7 @@ export class MainComponent extends LitElement {
     }
 
     private drawField(size: number): void {
+        this.hideWin();
         this.field.innerHTML = '';
         this.style.setProperty(
             '--size',
@@ -128,9 +159,9 @@ export class MainComponent extends LitElement {
                 div.classList.add('game-grid__item');
                 div.dataset.row = String(rowIndex);
                 div.dataset.ceil = String(ceilIndex);
-                div.onmouseover = this.onMouseOver;
-                div.onmousedown = this.onMouseDown;
-                div.onmouseup = this.onMouseUp;
+                div.onmouseover = this.onMouseOver.bind(this);
+                div.onmousedown = this.onMouseDown.bind(this);
+                div.onmouseup = this.onMouseUp.bind(this);
 
                 this.field.appendChild(div);
             })
@@ -141,14 +172,20 @@ export class MainComponent extends LitElement {
         e: Event
     ) {
         this.draw = false;
-        const hasWord = fillWordModule.attempt(this.line);
+        const hasWord = fillWordModule.attempt({
+            model: this.model,
+            ids: this.line
+        });
 
         hasWord.then(
             (status) => {
-                if (status == FillWordGameStatus.GOOD_MOVE) {
-                    this.model.wordsFoundIds.push(this.line);
+                if (status !== FillWordGameStatus.WRONG_MOVE) {
                     this.line = [];
-                    //
+                    this.clearWord();
+
+                    if (status === FillWordGameStatus.END_GAME) {
+                        this.showWin();
+                    }
                 } else {
                     this.clearTimeLine();
                 }
@@ -200,12 +237,16 @@ export class MainComponent extends LitElement {
 
     private activate(row: number, ceil: number): void {
         this.model.matrix[row][ceil].active = true;
+        this.getHtmlElement(row, ceil).style.setProperty('--_color', '#abd1dc');
+
         this.addTimeline(row, ceil);
         this.addChar(this.model.matrix[row][ceil].content);
     }
 
     private disable(row: number, ceil: number) {
         this.model.matrix[row][ceil].active = false;
+        this.getHtmlElement(row, ceil).style.setProperty('--_color', 'white');
+
         this.removeLastChar();
     }
 
@@ -245,18 +286,31 @@ export class MainComponent extends LitElement {
 
     private clearTimeLine(): void {
         this.line.forEach(id => {
-            this.model.matrix.forEach((row) => row.find((model) => model.id === id).active = false);
+            this.model.matrix.forEach((row) => {
+                const el = row.find((model) => model.id === id);
+                if (el) {
+                    el.active = false;
+                    const wordPattern: WordPattern = this.findInMatrix(el.id);
+                    const htmlElement: HTMLElement = this.getHtmlElement(wordPattern[0], wordPattern[1]);
+
+                    htmlElement.style.setProperty('--_color', 'white');
+                }
+            });
         });
 
         this.line = [];
     }
 
-    private addChar(char: string) {
+    private addChar(char: string): void {
         this.word.push(char);
     }
 
-    private removeLastChar() {
+    private removeLastChar(): void {
         this.word.splice(this.word.length - 1, 1);
+    }
+
+    private clearWord(): void {
+        this.word = [];
     }
 
     private findInMatrix(id: ID): WordPattern {
@@ -273,5 +327,26 @@ export class MainComponent extends LitElement {
         }
 
         throw new Error('Not found element with such id');
+    }
+
+    private getHtmlElement(row: number, ceil: number): HTMLElement {
+        for (const element: HTMLElement of this.field.children) {
+            const elRow = parseInt(element.dataset.row);
+            const elCeil = parseInt(element.dataset.ceil);
+
+            if (elRow === row && elCeil === ceil) {
+                return element;
+            }
+        }
+
+        throw new Error('Not found element');
+    }
+
+    private hideWin(): void {
+        this.win.classList.add('win--hidden');
+    }
+
+    private showWin(): void {
+        this.win.classList.remove('win--hidden');
     }
 }

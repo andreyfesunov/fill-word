@@ -26,6 +26,11 @@ export interface IFillWordCreateModel {
     size: number;
 }
 
+export interface IFillWordAttemptModel {
+    model: FillWordGameModel; // IN REAL CASE THERE WILL BE ONLY ID OF GAME
+    ids: ID[];
+}
+
 export class FillWordGameModel implements IFillWordModel {
     public wordsIds: number[][] = [];
     public wordsFoundIds: number[][] = [];
