@@ -68,15 +68,15 @@ export class MainComponent extends LitElement {
         height: 80px;
         border: 1px solid #e7e7e7;
       }
-      
+
       .range {
         border-radius: 12px;
         background-color: white;
         display: flex;
         justify-content: center;
         padding: 12px;
-      }      
-      
+      }
+
       .container {
         padding: 12px;
         display: flex;
@@ -84,22 +84,22 @@ export class MainComponent extends LitElement {
         align-items: center;
         gap: 12px;
       }
-      
+
       .win {
         display: flex;
         flex-direction: column;
         padding: 12px;
         border-radius: 12px;
-        background-color: white;  
+        background-color: white;
       }
-      
+
       .win--hidden {
         display: none;
       }
-      
+
       .win > .win__button {
       }
-      
+
       * {
         user-select: none;
         margin: 0;
@@ -181,7 +181,6 @@ export class MainComponent extends LitElement {
             (status) => {
                 if (status !== FillWordGameStatus.WRONG_MOVE) {
                     this.line = [];
-                    this.clearWord();
 
                     if (status === FillWordGameStatus.END_GAME) {
                         this.showWin();
@@ -299,18 +298,6 @@ export class MainComponent extends LitElement {
         });
 
         this.line = [];
-    }
-
-    private addChar(char: string): void {
-        this.word.push(char);
-    }
-
-    private removeLastChar(): void {
-        this.word.splice(this.word.length - 1, 1);
-    }
-
-    private clearWord(): void {
-        this.word = [];
     }
 
     private findInMatrix(id: ID): WordPattern {
