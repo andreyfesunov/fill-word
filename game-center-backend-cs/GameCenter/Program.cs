@@ -1,3 +1,4 @@
+using game_center_backend_cs;
 using game_center_backend_cs.Application;
 using game_center_backend_cs.Domain.Repositories;
 using game_center_backend_cs.Domain.Services.FillWord;
@@ -19,7 +20,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", corsPolicyBuilder =>
     {
-        corsPolicyBuilder.WithOrigins("http://localhost:8080") // Укажите адрес вашего клиентского приложения
+        corsPolicyBuilder.WithOrigins(Env.ClientUrl)
             .AllowAnyMethod()
             .AllowAnyHeader();
     });

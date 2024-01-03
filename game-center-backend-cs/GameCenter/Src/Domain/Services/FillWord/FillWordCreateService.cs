@@ -206,7 +206,7 @@ public class FillWordCreateService
             var patternWord = pattern[^1];
 
             foreach (var symbol in rawWordPattern)
-                patternWord[patternWord.Count] = new PatternElement(symbol.Row + 4, symbol.Ceil);
+                patternWord.Insert(patternWord.Count, new PatternElement(symbol.Row + 4, symbol.Ceil));
         }
 
         // 4x3 as right top

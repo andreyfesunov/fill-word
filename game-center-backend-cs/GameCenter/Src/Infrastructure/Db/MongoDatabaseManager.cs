@@ -4,8 +4,8 @@ namespace game_center_backend_cs.Infrastructure.Db;
 
 public static class MongoDatabaseManager
 {
-    private const string ConnectionString = "mongodb://localhost:27017";
-    private const string DatabaseName = "GameCenter";
+    private const string ConnectionString = Env.DatabaseConnectionString;
+    private const string DatabaseName = Env.DatabaseName;
     private static IMongoDatabase? _database;
     private static readonly object Padlock = new();
 
