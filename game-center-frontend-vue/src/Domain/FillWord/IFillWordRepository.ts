@@ -1,11 +1,13 @@
 import {
   FillWordGameStatus,
   IFillWord,
-  IFillWordAttempt,
-  IFillWordCreate,
+  IFillWordAttemptRequest, IFillWordAttemptResponse,
+  IFillWordCreateRequest
 } from "./FillWord.models";
 
 export interface IFillWordRepository {
-  createFillWordGame: (model: IFillWordCreate) => Promise<IFillWord>;
-  attempt: (model: IFillWordAttempt) => Promise<FillWordGameStatus>;
+  createFillWordGame: (model: IFillWordCreateRequest) => Promise<IFillWord>;
+  attempt: (
+    model: IFillWordAttemptRequest
+  ) => Promise<IFillWordAttemptResponse>;
 }

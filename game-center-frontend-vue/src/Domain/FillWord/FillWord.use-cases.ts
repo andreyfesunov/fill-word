@@ -1,14 +1,14 @@
 import { UseCaseWithSingleParamAndPromiseResult } from "../UseCases.types";
 import {
-  FillWordGameStatus,
   IFillWord,
-  IFillWordAttempt,
-  IFillWordCreate,
+  IFillWordAttemptRequest,
+  IFillWordAttemptResponse,
+  IFillWordCreateRequest,
 } from "./FillWord.models";
 import { IFillWordRepository } from "./IFillWordRepository";
 
 export type FillWordCreateGameUseCaseType =
-  UseCaseWithSingleParamAndPromiseResult<IFillWordCreate, IFillWord>;
+  UseCaseWithSingleParamAndPromiseResult<IFillWordCreateRequest, IFillWord>;
 
 export const FillWordCreateGameUseCase = (
   fillWordRepository: IFillWordRepository
@@ -17,8 +17,8 @@ export const FillWordCreateGameUseCase = (
 });
 
 export type FillWordAttemptUseCaseType = UseCaseWithSingleParamAndPromiseResult<
-  IFillWordAttempt,
-  FillWordGameStatus
+  IFillWordAttemptRequest,
+  IFillWordAttemptResponse
 >;
 
 export const FillWordAttemptUseCase = (

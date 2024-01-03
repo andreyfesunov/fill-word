@@ -6,8 +6,9 @@ import {
 } from "@domain/FillWord/FillWord.models";
 import FillWordCeil from "@presentation/components/atoms/FillWordCeil.vue";
 import { ID } from "@domain/SharedKernel.types";
-import { WordPattern } from "@api/FillWord/Mock/Infrastructure/Patterns.db";
 import { fillWordModule } from "@presentation/store/modules/fill-word";
+
+export type WordPattern = [number, number];
 
 @Component({
   components: { FillWordCeil },
@@ -31,7 +32,7 @@ export default class FillWordField extends Vue {
     this.draw = false;
     const hasWord = fillWordModule.attempt({
       id: this.model.id,
-      ids: this.line,
+      answerIds: this.line,
     });
 
     hasWord.then((status) => {

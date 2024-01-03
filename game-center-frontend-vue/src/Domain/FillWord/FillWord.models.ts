@@ -8,9 +8,7 @@ export interface IFillWordCeil {
 export interface IFillWord {
   id: ID;
   matrix: IFillWordCeil[][];
-  wordsIds: ID[][];
-  row: number;
-  col: number;
+  answers: ID[][];
 }
 
 export interface IFillWordGameElement extends IFillWordCeil {
@@ -23,13 +21,17 @@ export enum FillWordGameStatus {
   END_GAME = 2,
 }
 
-export interface IFillWordCreate {
+export interface IFillWordCreateRequest {
   size: number;
 }
 
-export interface IFillWordAttempt {
+export interface IFillWordAttemptRequest {
   id: ID;
-  ids: ID[];
+  answerIds: ID[];
+}
+
+export interface IFillWordAttemptResponse {
+  status: FillWordGameStatus;
 }
 
 export interface IFillWordGame extends IFillWord {

@@ -1,8 +1,8 @@
 import {
   FillWordGameStatus,
   IFillWord,
-  IFillWordAttempt,
-  IFillWordCreate,
+  IFillWordAttemptRequest, IFillWordAttemptResponse,
+  IFillWordCreateRequest
 } from "@domain/FillWord/FillWord.models";
 
 export enum FillWordEndPoints {}
@@ -12,6 +12,6 @@ export enum FillWordEndPoints {}
      */
 
 export interface IFillWordApi {
-  createFillWordGame: (model: IFillWordCreate) => Promise<IFillWord>;
-  attempt: (dto: IFillWordAttempt) => Promise<FillWordGameStatus>;
+  createFillWordGame: (model: IFillWordCreateRequest) => Promise<IFillWord>;
+  attempt: (dto: IFillWordAttemptRequest) => Promise<IFillWordAttemptResponse>;
 }

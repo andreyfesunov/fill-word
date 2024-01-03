@@ -1,7 +1,7 @@
 import { Action, Module, Mutation, VuexModule } from "vuex-class-modules";
 import {
   FillWordGameStatus,
-  IFillWordAttempt,
+  IFillWordAttemptRequest,
   IFillWordGame,
 } from "@domain/FillWord/FillWord.models";
 import { fillWordAdapter } from "@adapter/FillWord/FillWord.adapter";
@@ -12,12 +12,9 @@ import { Modules } from "@presentation/store/modules";
 export default class FillWord extends VuexModule {
   private _game: IFillWordGame = {
     id: 0,
-    wordsIds: [],
+    answers: [],
     matrix: [],
-    col: 0,
-    row: 0,
   };
-  private _results: string[] = [];
   private _minSize = 3;
   private _maxSize = 8;
   private _size = Math.round((this._minSize + this._maxSize) / 2);
@@ -31,18 +28,6 @@ export default class FillWord extends VuexModule {
     return this._size;
   }
 
-  get minSize() {
-    return this._minSize;
-  }
-
-  get maxSize() {
-    return this._maxSize;
-  }
-
-  get results() {
-    return this._results;
-  }
-
   get status() {
     return this._status;
   }
@@ -50,11 +35,6 @@ export default class FillWord extends VuexModule {
   @Mutation
   public setGame(game: IFillWordGame) {
     this._game = game;
-  }
-
-  @Mutation
-  public setResults(results: string[]) {
-    this._results = results;
   }
 
   @Mutation
@@ -77,9 +57,7 @@ export default class FillWord extends VuexModule {
   public async createGame() {
     const gameBackend = await fillWordAdapter.createGame({ size: this.size });
     this.setGame({
-      wordsIds: gameBackend.wordsIds,
-      row: gameBackend.row,
-      col: gameBackend.col,
+      answers: gameBackend.answers,
       matrix: gameBackend.matrix.map((row) =>
         row.map((ceil) => ({
           content: ceil.content,
@@ -99,10 +77,10 @@ export default class FillWord extends VuexModule {
   }
 
   @Action
-  async attempt(model: IFillWordAttempt) {
-    const status = await fillWordAdapter.attempt(model);
-    this.setStatus(status);
-    return status;
+  async attempt(model: IFillWordAttemptRequest) {
+    const response = await fillWordAdapter.attempt(model);
+    this.setStatus(response.status);
+    return response.status;
   }
 }
 
