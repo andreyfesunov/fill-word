@@ -13,7 +13,7 @@ const domChange = (element: HTMLElement) => new Observable<string>((observer) =>
     return () => element.removeEventListener('change', onChange);
 });
 
-@customElement('fill-word-game')
+@customElement('fill-word.ts-game')
 export class MainComponent extends LitElement {
     private size: number = 5;
     private subscription: Subscription | null = null;

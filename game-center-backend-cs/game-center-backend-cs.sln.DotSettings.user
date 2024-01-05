@@ -1,14 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1f7a3643_002D2807_002D401f_002D84bd_002D8360d5e48689/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestGoodMove #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=251aeb10_002D0574_002D4cdb_002D8fc1_002De9d28cf3019a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="FillWordCreateApiTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestGoodMove&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordCreateApiTest.TestCreateSizeTwo&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestWrongMove&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestEndGame&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordCreateApiTest.TestCreateSizeTen&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordCreateApiTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.User.UserGetApiTest.LogInTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2ba89119_002Dca9d_002D4fdf_002D9774_002D41a64424e44a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestGoodMove #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestGoodMove&lt;/TestId&gt;&#xD;
@@ -18,6 +16,9 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestGoodMove&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=448249c4_002Dd9dc_002D4e7e_002D806d_002Ddc2bad29b8f8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from FillWordCreateApiTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47/d:Tests/d:Api/d:FillWord/f:FillWordCreateApiTest.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=58ad117c_002Df2b7_002D483b_002Dbb22_002D5d7e02196a64/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FillWordCreateApiTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
@@ -29,13 +30,32 @@
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest.TestGoodMove&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=666018b3_002D54b8_002D4b31_002Dad76_002Ded55090ede82/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LogInTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.User.UserGetApiTest.LogInTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7418b3a5_002D94e0_002D42bf_002Dbe29_002Da27a7102a0b4/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FillWordUpdateApiTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a2a4e9bb_002D9bbe_002D4c71_002Da652_002D23506b7e29a5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;GameCenterTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenterTest" Presentation="&amp;lt;GameCenterTest&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a34cf9c0_002D08c7_002D42f9_002Db66d_002D4a38c9c6698f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LogInTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.User.UserGetApiTest.LogInTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ab52e88f_002Df260_002D4228_002Daf4c_002Dcf60c8645b4c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FillWordUpdateApiTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordUpdateApiTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d36ecd77_002D8c4e_002D49f5_002D8595_002Dede95edb10db/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FillWordCreateApiTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.FillWord.FillWordCreateApiTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::4A9E0590-FDA0-40D7-86A9-64CB5D9C0B47::net7.0::GameCenterTest.Tests.Api.User.UserGetApiTest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

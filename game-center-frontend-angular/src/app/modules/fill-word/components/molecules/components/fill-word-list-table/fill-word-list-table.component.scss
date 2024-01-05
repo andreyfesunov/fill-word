@@ -1,0 +1,17 @@
+.fill-word-list-table {
+  --wr-fill-word-list-table-gap: 16px;
+  --wr-fill-word-list-table-grid-auto-columns: repeat(2, 1fr);
+
+  gap: var(--wr-fill-word-list-table-gap);
+
+  display: grid;
+  grid-template-columns: var(--wr-fill-word-list-table-grid-auto-columns);
+
+  @media (min-width: 600px) {
+    --wr-fill-word-list-table-grid-auto-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 900px) {
+    --wr-fill-word-list-table-grid-auto-columns: repeat(4, 1fr);
+  }
+}

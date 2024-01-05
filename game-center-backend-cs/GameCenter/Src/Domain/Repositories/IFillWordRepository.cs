@@ -8,5 +8,7 @@ public interface IFillWordRepository
 
     public FillWordModel FindById(string id);
 
+    public List<FillWordModel> List();
+
     public void Update(FillWordModel model);
 }

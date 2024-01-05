@@ -1,0 +1,22 @@
+@forward "app/styles/theme";
+@forward "app/styles/mixins/typography";
+@forward "app/styles/material";
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.host-class {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 1px;
+}

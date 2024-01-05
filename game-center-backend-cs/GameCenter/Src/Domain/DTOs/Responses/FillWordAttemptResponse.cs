@@ -4,5 +4,5 @@ namespace game_center_backend_cs.Domain.DTOs.Responses;
 
 public class FillWordAttemptResponse
 {
-    public FillWordAttemptStatusEnum Status { get; set; }
+    public required FillWordAttemptStatusEnum Status { get; init; }
 }

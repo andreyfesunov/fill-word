@@ -2,7 +2,6 @@
 
 public class FillWordAttemptRequest
 {
-    public string Id { get; set; }
-
-    public List<int> AnswerIds { get; set; }
+    public required List<int> AnswerIds { get; set; }
+    public required string Id { get; set; }
 }

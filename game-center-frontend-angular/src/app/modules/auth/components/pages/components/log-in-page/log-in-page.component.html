@@ -1,0 +1,13 @@
+<div [formGroup]="state.FormGroup" class="log-in-page__form">
+  <mat-form-field>
+    <mat-label>Логин:</mat-label>
+    <input formControlName="login" matInput>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Пароль</mat-label>
+    <input formControlName="password" matInput type="password">
+  </mat-form-field>
+
+  <button (click)="state.OnSubmit()" mat-button>Отправить</button>
+</div>

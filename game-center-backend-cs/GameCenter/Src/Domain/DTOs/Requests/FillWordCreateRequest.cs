@@ -2,5 +2,5 @@
 
 public class FillWordCreateRequest
 {
-    public int Size { get; set; }
+    public required int Size { get; set; }
 }

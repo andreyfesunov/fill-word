@@ -1,0 +1,34 @@
+.fill-word-all-board-with-creation {
+  --wr-fill-word-all-board-with-creation-gap: 16px;
+  --wr-fill-word-all-board-with-creation-padding: 16px;
+  --wr-fill-word-all-board-with-creation-border-radius: 16px;
+  --wr-fill-word-all-board-with-creation-background-color: var(--md-sys-color-surface-container);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--wr-fill-word-all-board-with-creation-gap);
+  padding: var(--wr-fill-word-all-board-with-creation-padding);
+  border-radius: var(--wr-fill-word-all-board-with-creation-border-radius);
+  background-color: var(--wr-fill-word-all-board-with-creation-background-color);
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--wr-fill-word-all-board-with-creation-gap);
+    align-items: center;
+  }
+
+  &__button,
+  &__select {
+    grid-column: span 2;
+
+    @media (min-width: 900px) {
+      grid-column: span 1;
+    }
+  }
+
+  &__button {
+    height: 100% !important;
+  }
+}

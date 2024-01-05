@@ -1,0 +1,26 @@
+.fill-word-ceil {
+  --wr-fill-word-ceil-background-color: var(--md-sys-color-surface-container-low);
+  --wr-fill-word-ceil-box-shadow: 2px 2px 2px var(--md-sys-color-shadow);
+  --wr-fill-word-ceil-width: 90px;
+  --wr-fill-word-ceil-aspect-ratio: 1 / 1;
+
+  background-color: var(--wr-fill-word-ceil-background-color);
+  box-shadow: var(--wr-fill-word-ceil-box-shadow);
+  width: var(--wr-fill-word-ceil-width);
+  aspect-ratio: var(--wr-fill-word-ceil-aspect-ratio);
+
+  display: grid;
+  place-items: center;
+  user-select: none;
+
+  &__text {
+    font-size: 45px;
+    color: var(--md-sys-color-primary);
+  }
+
+  &--active {
+    background-color: var(--md-sys-color-primary-fixed);
+    transform: translate(1.5px, 1.5px);
+    box-shadow: 0.5px 0.5px 2px var(--md-sys-color-shadow);
+  }
+}

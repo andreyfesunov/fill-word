@@ -20,8 +20,15 @@ public class FillWordRepository : IFillWordRepository
         var objectId = ObjectId.Parse(id);
         var model = FillWord.Query()
             .Find(x => x.Id == objectId)
-            .First();
+            .Single();
         return FillWord.FromDatabase(model);
+    }
+
+    public List<FillWordModel> List()
+    {
+        var filter = new BsonDocument();
+        var models = FillWord.Query().Find(x => true).ToList();
+        return models.Select(FillWord.FromDatabase).ToList();
     }
 
     public void Update(FillWordModel model)

@@ -1,0 +1,7 @@
+@use "src/app/styles/mixins/typography";
+
+.mdc-button {
+  color: var(--md-sys-color-on-surface) !important;
+  background-color: var(--md-sys-color-on-secondary) !important;
+  @include typography.title-medium;
+}

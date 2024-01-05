@@ -1,0 +1,44 @@
+@use "src/app/styles/mixins/typography";
+
+.fill-word-game-board {
+  --wr-fill-word-game-board-gap: 16px;
+  --wr-fill-word-game-board-padding: 16px;
+  --wr-fill-word-game-board-border-radius: 16px;
+  --wr-fill-word-game-board-background-color: var(--md-sys-color-surface-container);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: var(--wr-fill-word-game-board-gap);
+  padding: var(--wr-fill-word-game-board-padding);
+  background-color: var(--wr-fill-word-game-board-background-color);
+  border-radius: var(--wr-fill-word-game-board-border-radius);
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--wr-fill-word-game-board-gap);
+  }
+
+  &__button,
+  &__info {
+    height: 32px !important;
+    color: var(--md-sys-color-on-surface) !important;
+    background-color: var(--md-sys-color-on-secondary) !important;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    padding-inline: 8px;
+    border-radius: 8px;
+  }
+
+  &__text {
+    margin: 0 !important;
+    @include typography.title-small;
+  }
+}

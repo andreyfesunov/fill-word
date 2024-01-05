@@ -1,16 +1,16 @@
-﻿using game_center_backend_cs.Domain.Models.FillWord;
+﻿using game_center_backend_cs.Domain.Models.UserFillWord;
 
 namespace game_center_backend_cs.Domain.Services.FillWord;
 
 public static class FillWordSecurityService
 {
-    public static void ValidateAttemptAnswers(FillWordModel model, List<int> answerIds)
+    public static void ValidateAttemptAnswers(UserFillWordModel model, List<int> answerIds)
     {
         if (!IsAttemptAnswersCorrect(model, answerIds))
             throw new Exception("Given answer already exists in array of answers");
     }
 
-    private static bool IsAttemptAnswersCorrect(FillWordModel model, List<int> answerIds)
+    private static bool IsAttemptAnswersCorrect(UserFillWordModel model, List<int> answerIds)
     {
         foreach (var foundAnswer in model.FoundAnswers)
         {

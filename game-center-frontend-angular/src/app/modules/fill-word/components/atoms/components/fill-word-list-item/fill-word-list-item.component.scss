@@ -1,0 +1,59 @@
+@import "src/app/styles/mixins/typography";
+
+.fill-word-list-item {
+  --wr-fill-word-list-item-gap: 16px;
+  --wr-fill-word-list-item-padding: 16px;
+  --wr-fill-word-list-item-border-radius: 16px;
+  --wr-fill-word-list-item-background-color: var(--md-sys-color-secondary-container);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  gap: var(--wr-fill-word-list-item-gap);
+  padding: var(--wr-fill-word-list-item-padding);
+  border-radius: var(--wr-fill-word-list-item-border-radius);
+  background-color: var(--wr-fill-word-list-item-background-color);
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--wr-fill-word-list-item-gap);
+  }
+
+  &__number {
+    color: var(--md-sys-color-on-secondary-container);
+    @include headline-medium;
+  }
+
+  &__size {
+    color: var(--md-sys-color-on-secondary-container);
+    @include title-medium;
+  }
+
+  &__status {
+    --wr-fill-word-list-item-status-size: 24px;
+    --wr-fill-word-list-item-status-border-radius: 8px;
+    height: var(--wr-fill-word-list-item-status-size);
+    width: var(--wr-fill-word-list-item-status-size);
+
+    --wr-fill-word-list-item-status-background-color: rgb(0, 0, 0, 0);
+    background-color: var(--wr-fill-word-list-item-status-background-color);
+    border-radius: var(--wr-fill-word-list-item-status-border-radius);
+
+    &--not-started {
+      --wr-fill-word-list-item-status-background-color: green;
+    }
+
+    &--in-progress {
+      --wr-fill-word-list-item-status-background-color: yellow;
+    }
+
+    &--finished {
+      --wr-fill-word-list-item-status-background-color: red;
+    }
+  }
+}

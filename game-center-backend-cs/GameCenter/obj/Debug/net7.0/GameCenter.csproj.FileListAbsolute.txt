@@ -44,3 +44,4 @@ D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenter\bin\Debug\net7.0\Z
 D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenter\bin\Debug\net7.0\runtimes\linux\native\libmongocrypt.so
 D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenter\bin\Debug\net7.0\runtimes\osx\native\libmongocrypt.dylib
 D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenter\bin\Debug\net7.0\runtimes\win\native\mongocrypt.dll
+D:\Repos\fillWord\fill-word\game-center-backend-cs\GameCenter\bin\Debug\net7.0\BCrypt.Net.dll

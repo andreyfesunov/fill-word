@@ -26,6 +26,15 @@ public class FillWordUpdateApiTest : ApiTestBase
         return await HttpClient.SendAsync(request);
     }
 
+    private async Task<HttpResponseMessage> FindById(string id)
+    {
+        // Создание HTTP-запроса
+        var request = new HttpRequestMessage(HttpMethod.Get, $"/api/FillWord/{id}");
+
+        // Выполнение GET-запроса
+        return await HttpClient.SendAsync(request);
+    }
+
     private async Task<HttpResponseMessage> Attempt(string id, List<int> answerIds)
     {
         var httpContent = new FillWordAttemptRequest
@@ -39,7 +48,7 @@ public class FillWordUpdateApiTest : ApiTestBase
         var request = new HttpRequestMessage(HttpMethod.Post, "/api/FillWord");
         request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        // Выполнение PUT-запроса
+        // Выполнение POST-запроса
         return await HttpClient.SendAsync(request);
     }
 
@@ -59,6 +68,8 @@ public class FillWordUpdateApiTest : ApiTestBase
         var json = await createResponse.Content.ReadAsStringAsync();
         var model = Deserialize<FillWordModel>(json);
 
+        await FindById(model.Id);
+
         var updateResponse = await Attempt(model.Id, model.Answers.First());
         json = await updateResponse.Content.ReadAsStringAsync();
         var attemptModel = Deserialize<FillWordAttemptResponse>(json);
@@ -73,6 +84,8 @@ public class FillWordUpdateApiTest : ApiTestBase
         var json = await createResponse.Content.ReadAsStringAsync();
         var model = Deserialize<FillWordModel>(json);
 
+        await FindById(model.Id);
+
         var updateResponse = await Attempt(model.Id, new List<int> { 0 });
         json = await updateResponse.Content.ReadAsStringAsync();
         var attemptModel = Deserialize<FillWordAttemptResponse>(json);
@@ -86,6 +99,8 @@ public class FillWordUpdateApiTest : ApiTestBase
         var createResponse = await Create(10);
         var json = await createResponse.Content.ReadAsStringAsync();
         var model = Deserialize<FillWordModel>(json);
+
+        await FindById(model.Id);
 
         var attemptModel = new FillWordAttemptResponse { Status = FillWordAttemptStatusEnum.WrongMove };
         foreach (var answer in model.Answers)

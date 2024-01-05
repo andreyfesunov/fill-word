@@ -1,21 +1,26 @@
 ﻿using game_center_backend_cs.Domain.Enums;
 using game_center_backend_cs.Domain.Repositories;
+using game_center_backend_cs.Domain.Services.User;
 
 namespace game_center_backend_cs.Domain.Services.FillWord;
 
 public class FillWordUpdateService
 {
     private readonly IFillWordRepository _fillWordRepository;
+    private readonly IUserFillWordRepository _userFillWordRepository;
 
-    public FillWordUpdateService(IFillWordRepository repository)
+    public FillWordUpdateService(IFillWordRepository repository, IUserFillWordRepository userFillWordRepository)
     {
         _fillWordRepository = repository;
+        _userFillWordRepository = userFillWordRepository;
     }
 
     public FillWordAttemptStatusEnum Attempt(string id, List<int> answerIds)
     {
+        var user = AuthContext.GetCurrentUser();
         var model = _fillWordRepository.FindById(id);
-        FillWordSecurityService.ValidateAttemptAnswers(model, answerIds);
+        var relationModel = _userFillWordRepository.Find(user.Id, model.Id);
+        FillWordSecurityService.ValidateAttemptAnswers(relationModel, answerIds);
         // ----
 
         foreach (var answer in model.Answers)
@@ -29,10 +34,10 @@ public class FillWordUpdateService
                 }
 
             if (!equals) continue;
-            model.FoundAnswers.Add(answerIds);
-            _fillWordRepository.Update(model);
+            relationModel.FoundAnswers.Add(answerIds);
+            _userFillWordRepository.Update(relationModel);
 
-            return model.FoundAnswers.Count == model.Answers.Count
+            return relationModel.FoundAnswers.Count == model.Answers.Count
                 ? FillWordAttemptStatusEnum.EndGame
                 : FillWordAttemptStatusEnum.GoodMove;
         }

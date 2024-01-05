@@ -1,0 +1,10 @@
+<div [class]="GridClass" (mouseleave)="OnMouseUp()">
+  <app-fill-word-ceil
+    *ngFor="let ceil of model.matrix"
+    [active]="ceil.active"
+    [letter]="ceil.content"
+    (mouseover)="OnMouseOver(ceil.id)"
+    (mouseup)="OnMouseUp()"
+    (mousedown)="OnMouseDown(ceil.id)"
+  ></app-fill-word-ceil>
+</div>

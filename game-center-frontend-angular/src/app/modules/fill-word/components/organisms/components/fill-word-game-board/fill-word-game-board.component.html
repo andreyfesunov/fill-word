@@ -1,0 +1,12 @@
+<div class="fill-word-game-board">
+  <div class="fill-word-game-board__header">
+    <button (click)="GoBack()" mat-raised-button class="fill-word-game-board__button">Назад</button>
+    <div *ngIf="isGameFinished" class="fill-word-game-board__info">
+      <p class="fill-word-game-board__text">Вы уже прошли этот уровень</p>
+    </div>
+  </div>
+  <app-fill-word-field
+    [model]="model"
+    (attempt)="OnAttempt($event)"
+  ></app-fill-word-field>
+</div>

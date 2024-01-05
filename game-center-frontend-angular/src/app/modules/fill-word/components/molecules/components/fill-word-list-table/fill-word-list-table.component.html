@@ -1,0 +1,9 @@
+<div class="fill-word-list-table">
+  <app-fill-word-list-item
+    *ngFor="let model of models; index as index"
+    [size]="GetSize(model.matrix)"
+    [number]="index + 1"
+    [status]="GetStatus(model.matrix)"
+    (click)="OnClick(model.id)"
+  ></app-fill-word-list-item>
+</div>

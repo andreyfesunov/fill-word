@@ -1,0 +1,7 @@
+<ng-container *ngIf="state.model$ | async as model">
+  <app-fill-word-game-board
+    [model]="model"
+    [isGameFinished]="state.IsGameFinished"
+    (attempt)="state.OnAttempt($event)"
+  ></app-fill-word-game-board>
+</ng-container>

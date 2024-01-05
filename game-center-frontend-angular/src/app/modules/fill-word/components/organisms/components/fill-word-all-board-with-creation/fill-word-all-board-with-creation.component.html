@@ -1,0 +1,13 @@
+<div class="fill-word-all-board-with-creation">
+  <div class="fill-word-all-board-with-creation__header">
+    <button (click)="OnCreate()" class="fill-word-all-board-with-creation__button" mat-button>Создавать новую игру
+    </button>
+    <mat-form-field class="fill-word-all-board-with-creation__select">
+      <mat-label>Выберите размер поля</mat-label>
+      <mat-select [(value)]="selectedSize">
+        <mat-option *ngFor="let size of availableSizes" [value]="size">{{ size }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <app-fill-word-list-table [models]="models"></app-fill-word-list-table>
+</div>

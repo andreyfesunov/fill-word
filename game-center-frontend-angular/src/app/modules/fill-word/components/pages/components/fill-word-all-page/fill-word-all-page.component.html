@@ -1,0 +1,6 @@
+<ng-container *ngIf="state.models$ | async as models">
+  <app-fill-word-all-board-with-creation
+    [models]="models"
+    (create)="state.OnCreate($event)"
+  ></app-fill-word-all-board-with-creation>
+</ng-container>
