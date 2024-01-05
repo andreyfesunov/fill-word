@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from "@angular/core";
+import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from "@angular/core";
 import {LogInPageState} from "../../states/log-in-page.state";
 
 @Component({
@@ -8,11 +8,10 @@ import {LogInPageState} from "../../states/log-in-page.state";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [LogInPageState],
-  host: {
-    class: 'log-in-page'
-  }
 })
 export class LogInPageComponent {
+  @HostBinding('class.log-in-page') addPageClass = true;
+
   constructor(public readonly state: LogInPageState) {
   }
 }

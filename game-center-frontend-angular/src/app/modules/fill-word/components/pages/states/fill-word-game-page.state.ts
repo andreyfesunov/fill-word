@@ -11,7 +11,7 @@ import {RouterService} from "../../../../../core/services/router.service";
 export class FillWordGamePageState implements OnDestroy {
   public readonly model$: Observable<IFillWordGame>;
   private readonly _subscription: Subscription = new Subscription();
-  private _isGameFinished: boolean = false;
+  private _isGameFinished = false;
 
   constructor(
     private readonly _service: FillWordService,

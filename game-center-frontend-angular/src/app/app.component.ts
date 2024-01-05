@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +6,7 @@ import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/co
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    class: 'host-class'
-  }
 })
 export class AppComponent {
+  @HostBinding('class.host-class') addHostClass = true;
 }

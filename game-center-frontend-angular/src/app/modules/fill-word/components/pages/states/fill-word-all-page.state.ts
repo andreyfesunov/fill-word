@@ -17,6 +17,7 @@ export class FillWordAllPageState implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this._subscription.unsubscribe();
   }
 
   public OnCreate(request: IFillWordCreateRequest): void {

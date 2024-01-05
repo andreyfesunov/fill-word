@@ -26,7 +26,7 @@ export class FillWordService {
 
   public Attempt(request: IFillWordAttemptRequest): Observable<IFillWordAttemptResponse> {
     return this.apiService.Attempt(request).pipe(
-      tap((response) => {
+      tap(() => {
         this.rootService.event$.next({
           type: FillWordEventType.Attempt
         })

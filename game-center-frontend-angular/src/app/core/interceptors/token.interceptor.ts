@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = this._addToken(request, this._authService.GetToken());
-    
+
     return next.handle(request).pipe(
       catchError((error) => {
         if (error instanceof HttpErrorResponse && error.status === 401) {
@@ -23,7 +23,7 @@ export class TokenInterceptor implements HttpInterceptor {
     );
   }
 
-  private _addToken(request: HttpRequest<any>, token: string | null) {
+  private _addToken(request: HttpRequest<unknown>, token: string | null) {
     return request.clone(token ? {
       setHeaders: {
         UserId: token

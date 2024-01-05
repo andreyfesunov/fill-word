@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, HostBinding, ViewEncapsulation} from "@angular/core";
-import {FillWordAllPageState} from "../../states/FillWordAllPageState";
+import {FillWordAllPageState} from "../../states/fill-word-all-page.state";
 
 @Component({
   selector: "app-fill-word-all-page",

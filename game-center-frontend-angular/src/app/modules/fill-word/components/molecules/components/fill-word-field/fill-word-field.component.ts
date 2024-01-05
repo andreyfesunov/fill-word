@@ -40,7 +40,9 @@ export class FillWordFieldComponent implements OnChanges {
   }
 
   private GetCeilById(id: number): IFillWordGameElement {
-    return this.model.matrix.find((el) => el.id === id)!;
+    const ceil = this.model.matrix.find((el) => el.id === id);
+    if (ceil !== undefined) return ceil;
+    throw new Error('No ceil with given id in matrix');
   }
 
   private GetCeilCoords(id: number): { row: number, ceil: number } {
