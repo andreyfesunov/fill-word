@@ -1,4 +1,4 @@
-@import "src/app/styles/mixins/typography";
+@import "../../../../../../styles/mixins/typography";
 
 .fill-word-list-item {
   --wr-fill-word-list-item-gap: 16px;
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     gap: var(--wr-fill-word-list-item-gap);
   }
 
